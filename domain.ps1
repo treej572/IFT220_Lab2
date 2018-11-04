@@ -15,8 +15,9 @@ Remove-NetIPAddress -InterfaceAlias $nicname -AddressFamily IPv4 -Confirm:$false
 Remove-NetRoute -InterfaceAlias $nicname -AddressFamily IPv4 -Confirm:$false
 New-NetIPAddress -InterfaceAlias $nicname -IPAddress $ipaddress -AddressFamily IPv4 -PrefixLength $prefixlength -DefaultGateway $gateway
 
-# Set the DNS address to ourselves
-Set-DnsClientServerAddress -InterfaceAlias $nicname -ServerAddresses $ipaddress
+#Set the DNS address to non-loopback local
+$dnsaddress =  "0.0.0.0"
+Set-DnsClientServerAddress -InterfaceAlias $nicname -ServerAddresses $dnsaddress
 
 # Make sure the timezone is set correctly
 Get-TimeZone | select -ExpandProperty "DisplayName"

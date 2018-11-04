@@ -1,5 +1,6 @@
 # IFT 220 Lab 2
 ## For ASU's IFT 220 2018 Fall B course.
+###Personalized comment from John Tree. Enjoy.
 
 (Do this on your VM.  Take a VM snapshot so you can undo if something goes wrong.)
 
